@@ -1,0 +1,183 @@
+/* Table styling for student data display */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 24px 24px 24px;
+}
+@media (max-width: 800px) {
+    .container {
+        max-width: 98vw;
+        padding: 18px 4vw 18px 4vw;
+    }
+}
+@media (max-width: 500px) {
+    .container {
+        max-width: 95vw;
+        padding: 18px 6vw 18px 6vw;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+    .student-card {
+        font-size: 0.98rem;
+        padding: 12px 6px;
+    }
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 24px;
+}
+.add-link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 24px auto;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.add-link:hover {
+    background: #0056b3;
+    box-shadow: 0 4px 16px rgba(0,123,255,0.10);
+}
+.student-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 18px 16px;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    white-space: pre-line;
+}
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 18px 0;
+}
+form label {
+    display: block;
+    margin-bottom: 6px;
+    color: #555;
+    font-weight: 500;
+}
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+form input:focus {
+    border: 1.5px solid #007bff;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+button[type="submit"]:hover {
+    background: #0056b3;
+    box-shadow: 0 4px 16px rgba(0,123,255,0.10);
+}
+a {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+    background: #fff;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.student-table th, .student-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    transition: background 0.2s, color 0.2s;
+}
+.student-table th {
+    background: #f4f6f8;
+    color: #333;
+    font-weight: 600;
+}
+.student-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+.student-table tbody tr:hover {
+    background: #e6f0ff;
+    transition: background 0.2s;
+}
+/* Grade color coding */
+.grade-A {
+    color: #1ca21c;
+    font-weight: bold;
+}
+.grade-B {
+    color: #1976d2;
+    font-weight: bold;
+}
+.grade-C {
+    color: #e6b800;
+    font-weight: bold;
+}
+.grade-D {
+    color: #ff9800;
+    font-weight: bold;
+}
+.grade-F {
+    color: #e53935;
+    font-weight: bold;
+}
+/* Responsive table */
+@media (max-width: 700px) {
+    .student-table th, .student-table td {
+        padding: 8px 4px;
+        font-size: 0.95rem;
+    }
+    .container {
+        padding: 8px 2vw 8px 2vw;
+    }
+    .student-table {
+        font-size: 0.92rem;
+    }
+} 

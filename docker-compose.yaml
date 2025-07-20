@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    image: php:8.2-apache
+    container_name: student-management-web
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=smanage
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+
+  db:
+    image: postgres:15
+    container_name: student-management-db
+    restart: always
+    environment:
+      POSTGRES_DB: smanage
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  pgdata:
