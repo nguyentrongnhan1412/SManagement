@@ -10,7 +10,15 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy all project files to the Apache root
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Copy composer files and install dependencies first (for better Docker caching)
+COPY composer.json composer.lock /var/www/html/
+WORKDIR /var/www/html
+RUN composer install --no-dev --no-interaction --prefer-dist
+
+# Now copy the rest of the application
 COPY . /var/www/html/
 
 # Enable Apache mod_rewrite if needed
