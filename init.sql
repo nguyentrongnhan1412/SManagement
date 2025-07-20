@@ -1,4 +1,3 @@
-
 -- Students table
 CREATE TABLE students (
     student_id SERIAL PRIMARY KEY,
@@ -19,6 +18,8 @@ CREATE TABLE grades (
     student_id INTEGER NOT NULL,
     subject_id INTEGER NOT NULL,
     grade_value DECIMAL(5,2) NOT NULL,
+    
+    -- Foreign key constraints
     FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
     FOREIGN KEY (subject_id) REFERENCES subjects(subject_id) ON DELETE CASCADE
 );
@@ -28,7 +29,11 @@ CREATE TABLE enrollments (
     enrollment_id SERIAL PRIMARY KEY,
     student_id INTEGER NOT NULL,
     subject_id INTEGER NOT NULL,
+    
+    -- Foreign key constraints
     FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
     FOREIGN KEY (subject_id) REFERENCES subjects(subject_id) ON DELETE CASCADE,
+    
+    -- Prevent duplicate enrollments
     UNIQUE (student_id, subject_id)
 );
